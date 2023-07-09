@@ -3,16 +3,16 @@ package Taller;
 
 
 public abstract class ClientesGenerales {
-    //atributos
-    private String nombre,apellido,cedula,aseguradora;
-    
-    //COnstrcutores
+    private String nombre;
+    private String apellido;
+    private String cedula;
+    private String aseguradora;
 
     public ClientesGenerales() {
-        this.nombre = " ";
-        this.apellido = " ";
-        this.cedula = " ";
-        this.aseguradora = " ";
+        this.nombre = "";
+        this.apellido = "";
+        this.cedula = "";
+        this.aseguradora = "";
     }
 
     public ClientesGenerales(String nombre, String apellido, String cedula, String aseguradora) {
@@ -22,40 +22,38 @@ public abstract class ClientesGenerales {
         this.aseguradora = aseguradora;
     }
 
-    public String getNombre() {
+
+    public String get_nom() {
         return nombre;
     }
 
-    public String getApellido() {
+    public String get_ape() {
         return apellido;
     }
 
-    public String getCedula() {
+    public String get_ced() {
         return cedula;
     }
 
-    public String getAseguradora() {
+    public String get_ase() {
         return aseguradora;
     }
 
-    public void setNombre(String nombre) {
+    public void set_nom(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setApellido(String apellido) {
+    public void set_ape(String apellido) {
         this.apellido = apellido;
     }
 
-    public void setCedula(String cedula) {
+    public void set_ced(String cedula) {
         this.cedula = cedula;
     }
 
-    public void setAseguradora(String aseguradora) {
+    public void set_ase(String aseguradora) {
         this.aseguradora = aseguradora;
     }
-    
-    //metodo abstracto stiring
-    public abstract String separaAseguradora();
-    
-    
+
+    public abstract String separa_aseguradora();
 }//end asbtract

@@ -3,12 +3,19 @@ package Autos;
 
 
 public class datos_autos {
-    //atributos
-    private String[] datos_autos = new String[3];
-    private String[] autos = new String[3];
-    
-    //metodos
-    public int devolverAutos(){return 0;}
-    
-    public int devolverCliente(){return 0;}
+    private String[] clientes;
+    private String[] autos;
+
+    public datos_autos(String[] clientes, String[] autos) {
+        this.clientes = clientes;
+        this.autos = autos;
+    }
+
+    public String devolver_autos(int posicion) {
+        return autos[posicion];
+    }
+
+    public String devolver_cliente(int posicion) {
+        return clientes[posicion];
+    }
 }// end class

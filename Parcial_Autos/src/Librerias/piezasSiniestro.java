@@ -9,9 +9,9 @@ public interface piezasSiniestro {
     public String[] piezas = {"PARACHOQUE DEL","PARACHOQUE TRA","CAPOT","MALETERA","TECHO","PUERTA TRA IZQ","PUERTA TRA DER","PUERTA DEL IZQ","PUERTA DEL DER","GUARDAFANGO TRA IZQ","GUARDAFANGO TRA DER","GUARDAFANGO DEL IZQ","GUARDAFANGO DEL DER"};
     //AMBOS SERAN PARALELOS; ES DECIR COMAPAR>TEN MISMO ORDEN
     public double[] Costos = new double[MAX_PIEZAS];
-    
-    public abstract int obtenerPieza();
-    
-    public abstract double obtenerCosto();
+
+    int obtenerIndicePieza(String pieza);
+
+    double obtenerCostoPieza(int ind);
     
 }//end interface
