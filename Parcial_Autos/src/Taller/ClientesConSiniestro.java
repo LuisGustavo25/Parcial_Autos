@@ -25,6 +25,10 @@ public class ClientesConSiniestro extends ClientesGenerales implements piezasSin
         return piezasDanhadas;
     }
 
+    public int cantidad_clientes() {
+        return placas.length;
+    }
+
     public void set_placas(String[] placas) {
         this.placas = placas;
     }

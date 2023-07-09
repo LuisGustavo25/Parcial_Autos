@@ -56,4 +56,6 @@ public abstract class ClientesGenerales {
     }
 
     public abstract String separa_aseguradora();
+
+    public abstract int obtenerIndicePieza(String pieza);
 }//end asbtract

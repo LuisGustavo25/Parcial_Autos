@@ -10,7 +10,9 @@ public interface piezasSiniestro {
     //AMBOS SERAN PARALELOS; ES DECIR COMAPAR>TEN MISMO ORDEN
     public double[] Costos = new double[MAX_PIEZAS];
 
-    int obtenerIndicePieza(String pieza);
+    static int obtenerIndicePieza(String pieza) {
+        return 0;
+    }
 
     double obtenerCostoPieza(int ind);
     
