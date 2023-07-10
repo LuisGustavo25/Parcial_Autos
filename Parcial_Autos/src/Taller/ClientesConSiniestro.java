@@ -97,8 +97,5 @@ public class ClientesConSiniestro extends ClientesGenerales implements piezasSin
         return 0;
     }
 
-    @Override
-    public double obtenerCostoPieza(int ind) {
-        return 0;
-    }
+    double obtenerCostoPieza(int ind);
 }
