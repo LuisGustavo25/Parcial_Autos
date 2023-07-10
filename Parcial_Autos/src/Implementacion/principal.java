@@ -20,7 +20,7 @@ public class principal {
 
         datos_autos datosAutos = new datos_autos(clientesData, autosData);
 
-        ClientesConSiniestro[] clientes = new ClientesConSiniestro[13];
+        ClientesConSiniestro[] clientes = new ClientesConSiniestro[2];
 
         for (int i = 0; i < clientes.length; i++) {
 
@@ -47,7 +47,12 @@ public class principal {
                 piezasDanhadas[j] = piezasString.isEmpty() ? new String[0] : piezasString.split("-");
             }
 
-            clientes[i] = new ClientesConSiniestro(nombre, apellido, cedula, aseguradora, placas, piezasDanhadas);
+            clientes[i] = new ClientesConSiniestro(nombre, apellido, cedula, aseguradora, placas, piezasDanhadas) {
+                @Override
+                public double obtenerCostoPieza(int ind) {
+                    return 0;
+                }
+            };
         }
 
         // Print payment details for each client

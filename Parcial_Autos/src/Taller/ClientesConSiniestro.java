@@ -1,7 +1,7 @@
 package Taller;
 import Librerias.piezasSiniestro;
 
-public class ClientesConSiniestro extends ClientesGenerales implements piezasSiniestro {
+public abstract class ClientesConSiniestro extends ClientesGenerales implements piezasSiniestro {
     private String[] placas;
     private String[][] piezasDanhadas;
 
@@ -43,27 +43,28 @@ public class ClientesConSiniestro extends ClientesGenerales implements piezasSin
 
     public double pago_cliente() {
         double totalPago = 0.0;
-        for (int i = 0; i < placas.length; i++) {
-            double costoAuto = 0.0;
-            for (int j = 0; j < piezasDanhadas.length; j++) {
-                if (piezasDanhadas[j].length > i) {
-                    int indPieza = obtenerIndicePieza(piezasDanhadas[j][i]);
+        int numAutos = placas.length;
+        for (int i = 0; i < piezasSiniestro.MAX_PIEZAS; i++) {
+            for (int j = 0; j < numAutos; j++) {
+                if (i < piezasDanhadas.length && j < piezasDanhadas[i].length && piezasDanhadas[i][j] != null && !piezasDanhadas[i][j].isEmpty()) {
+                    int indPieza = obtenerIndicePieza(piezasDanhadas[i][j]);
                     if (indPieza != -1) {
-                        costoAuto += obtenerCostoPieza(indPieza);
+                        double costoPieza = obtenerCostoPieza(indPieza);
+                        totalPago += costoPieza;
                     }
                 }
             }
-
-            if (piezasDanhadas.length > 3 && piezasDanhadas.length < 8) {
-                costoAuto -= costoAuto * 0.1; // Descuento del 10%
-            } else if (piezasDanhadas.length > 7) {
-                costoAuto -= costoAuto * 0.15; // Descuento del 15%
-            }
-
-            totalPago += costoAuto;
         }
+
+        if (numAutos >= 4 && numAutos <= 7) {
+            totalPago -= totalPago * 0.1; // Descuento del 10%
+        } else if (numAutos > 7) {
+            totalPago -= totalPago * 0.15; // Descuento del 15%
+        }
+
         return totalPago;
     }
+
 
     @Override
     public String separa_aseguradora() {
@@ -97,5 +98,5 @@ public class ClientesConSiniestro extends ClientesGenerales implements piezasSin
         return 0;
     }
 
-    double obtenerCostoPieza(int ind);
+    public abstract double obtenerCostoPieza(int ind);
 }
